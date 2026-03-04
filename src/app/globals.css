@@ -1,8 +1,8 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #020617;
+  --foreground: #e5e7eb;
 }
 
 @theme inline {
@@ -14,13 +14,58 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: #020617;
+    --foreground: #e5e7eb;
   }
 }
 
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
 body {
-  background: var(--background);
+  min-height: 100vh;
+  background: radial-gradient(circle at top left, #22d3ee22, transparent 55%),
+    radial-gradient(circle at bottom right, #4f46e522, transparent 55%),
+    radial-gradient(circle at top right, #22c55e11, transparent 45%),
+    #020617;
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+}
+
+.glass-panel {
+  @apply rounded-3xl border border-white/10 bg-slate-900/60 shadow-2xl shadow-sky-500/10 backdrop-blur-2xl;
+}
+
+.glass-card {
+  @apply rounded-2xl border border-white/10 bg-slate-900/60 shadow-xl shadow-sky-500/10 backdrop-blur-xl;
+}
+
+.page-shell {
+  @apply min-h-screen bg-transparent text-slate-100 antialiased;
+}
+
+.gradient-text {
+  @apply bg-gradient-to-r from-sky-400 via-emerald-400 to-indigo-400 bg-clip-text text-transparent;
+}
+
+.pill {
+  @apply inline-flex items-center gap-2 rounded-full border border-white/10 bg-slate-900/80 px-3 py-1 text-xs font-medium text-slate-200 shadow-lg shadow-sky-500/10 backdrop-blur-xl;
+}
+
+.primary-btn {
+  @apply inline-flex items-center justify-center gap-2 rounded-full bg-gradient-to-r from-sky-500 via-emerald-500 to-indigo-500 px-6 py-3 text-sm font-semibold text-slate-950 shadow-lg shadow-sky-500/40 transition hover:scale-[1.02] hover:shadow-sky-400/60 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-400;
+}
+
+.secondary-btn {
+  @apply inline-flex items-center justify-center gap-2 rounded-full border border-white/10 bg-slate-900/80 px-6 py-3 text-sm font-medium text-slate-100 shadow-lg shadow-sky-500/10 transition hover:border-sky-400/60 hover:bg-slate-900/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-400;
+}
+
+.input-dark {
+  @apply w-full rounded-xl border border-white/10 bg-slate-900/60 px-3 py-2 text-sm text-slate-100 shadow-inner shadow-slate-950/60 outline-none transition placeholder:text-slate-500 focus:border-sky-400 focus:ring-2 focus:ring-sky-500/40;
+}
+
+.section-max-width {
+  @apply mx-auto w-full max-w-6xl;
 }
